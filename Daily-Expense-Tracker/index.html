@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Daily Expense Tracker</h1>
+
+        <input type="text" placeholder="Enter Expense Category" id="category">
+        <input type="number" placeholder="Enter the amount" id="amount">
+
+        <button onclick="addExpense()">Add Expense</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="expenseTable">
+            </tbody>
+        </table>
+
+        <div id="total">Total Expense: 0</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
