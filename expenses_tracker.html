@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Daily Expense Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 95%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        #total {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Daily Expense Tracker</h1>
+
+        <input type="text" placeholder="Enter Expense Category" id="category">
+        <input type="number" placeholder="Enter the amount" id="amount">
+
+        <button onclick="addExpense()">Add Expense</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="expenseTable">
+
+            </tbody>
+        </table>
+
+        <div id="total">Total Expense </div>
+
+
+    </div>
+    <script>
+
+        let total = 0;
+
+
+        function addExpense() {
+
+            const category = document.getElementById('category').value;
+            console.log(category);
+
+            const amount = Number(document.getElementById("amount").value)
+            console.log(amount);
+
+            if (category === "" || amount <= 0) {
+                alert('plz enter an valid details')
+                return;
+            }
+
+            let table = document.getElementById('expenseTable');
+
+
+            let row = table.insertRow()
+
+            row.insertCell(0).innerHTML = category;
+            row.insertCell(1).innerHTML = amount;
+
+            total += amount
+
+            document.getElementById("total").innerHTML = "total expense :" + total;
+
+
+
+            document.getElementById('category').value = ""
+            document.getElementById('amount').value = ""
+
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
